@@ -1,4 +1,4 @@
-package po23s.http;
+package cch.http;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,10 +13,12 @@ import java.net.http.HttpResponse;
 public class ClienteHttp {
     public String buscaDados(String url){
         try{
-            URI endereco = URI.create(url);
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            final var endereco = URI.create(url);
+            final HttpResponse<String> response;
+            try (final var client = HttpClient.newHttpClient()) {
+                final var request = HttpRequest.newBuilder(endereco).GET().build();
+                response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            }
             return response.body();
         } catch (IOException | InterruptedException ex){
             throw new RuntimeException(ex);
