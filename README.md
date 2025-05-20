@@ -2,7 +2,7 @@
 
 ## Professor: Evandro Miguel Kuszera
 
-## Alunos: Felipe B. Ribeiro, Felipe F. Adames, Matheus O. H. Ris, Luiz H. M. Machado.
+### Alunos: Felipe B. Ribeiro, Felipe F. Adames, Matheus O. H. Ris, Luiz H. M. Machado.
 
 --
 
