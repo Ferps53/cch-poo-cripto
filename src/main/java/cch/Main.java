@@ -1,15 +1,19 @@
 package cch;
-import javax.swing.*;
+
+
+import cch.utils.FontManager;
+import cch.view.frames.CriptoFrame;
 
 public class Main {
 
-  public static void main(String[] args) {
+    private Main() {
+    }
 
-    final var janela = new JFrame("Cripto");
-    janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    janela.setSize(800, 600);
-    janela.setLocationRelativeTo(null);
-    janela.setResizable(false);
-    janela.setVisible(true);
-  }
+    public static void main(String[] args) {
+
+        FontManager.carregarFonte();
+        new CriptoFrame();
+    }
+
+
 }
