@@ -12,8 +12,12 @@ public class Main {
     public static void main(String[] args) {
 
         FontManager.carregarFonte();
-        new CriptoFrame();
+
+        try {
+            new CriptoFrame();
+        } catch (InterruptedException _) {
+            System.out.println("LOL");
+            Thread.currentThread().interrupt();
+        }
     }
-
-
 }
