@@ -23,6 +23,8 @@ public class PainelBordaArredondada extends JPanel {
         super();
         this.raio = 16;
         this.corDeFundo = corDeFundo;
+        // Corrige o fundo, senão pinta um cinza Windows 95 nas bordas
+        this.setOpaque(false);
     }
 
     @Override
@@ -31,7 +33,10 @@ public class PainelBordaArredondada extends JPanel {
         Dimension arcs = new Dimension(raio, raio);
         int largura = getWidth();
         int altura = getHeight();
-        Graphics2D graphics2D = (Graphics2D) g;
+        final var graphics2D = (Graphics2D) g;
+
+        // Bordas suaves
+        graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Usa a cor de fundo padrão caso não for definida
         if (corDeFundo != null) {

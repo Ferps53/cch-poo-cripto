@@ -1,23 +1,20 @@
 package cch.view.widgets;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
+
+import static cch.utils.CoresApp.*;
 
 public class PainelErro extends PainelBordaArredondada {
 
-    private static final Color COR_DO_TEXTO = new Color(0xFF2222);
-    private static final Color COR_DE_FUNDO = new Color(0xAC322C);
-
     public PainelErro(String mensagem, JComponent pai) {
 
-        super(COR_DE_FUNDO);
+        super(ERROR_SOFT);
+        super.setForeground(ERROR_MEDIUM);
         final var texto = new JLabel(mensagem);
-        texto.setForeground(COR_DO_TEXTO);
+        texto.setForeground(TEXT_PRIMARY);
         add(texto);
-        final var fechar = new JButton("X");
-        fechar.setForeground(Color.white);
-        fechar.setBackground(COR_DO_TEXTO);
+        final var fechar = new BotaoErro("X");
         fechar.addActionListener(criarEventoDeFechar(pai));
         add(fechar);
     }

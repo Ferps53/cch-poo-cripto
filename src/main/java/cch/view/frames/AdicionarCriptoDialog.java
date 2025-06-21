@@ -3,6 +3,7 @@ package cch.view.frames;
 import cch.http.ClienteHttp;
 import cch.model.OpcoesCripto;
 import cch.model.Ticker;
+import cch.utils.CoresApp;
 import cch.view.widgets.PainelErro;
 import cch.view.widgets.Tabela;
 import org.json.JSONObject;
@@ -18,10 +19,14 @@ public class AdicionarCriptoDialog extends JDialog {
     public AdicionarCriptoDialog(Tabela tabela) {
 
         this.tabela = tabela;
+        setResizable(false);
+        setAlwaysOnTop(true);
+        setModalityType(ModalityType.APPLICATION_MODAL);
         setSize(400, 400);
         setLocationRelativeTo(tabela.getRootPane());
         setTitle("Adicionar nova moeda");
         painel = new JPanel();
+        painel.setBackground(CoresApp.BACKGROUND_SECONDARY);
 
         final var button = new JButton("Adicionar Criptomoeda");
         button.addActionListener(_ -> {
@@ -31,7 +36,8 @@ public class AdicionarCriptoDialog extends JDialog {
         });
 
         painel.add(button);
-        add(painel);
+        // faz o painel cobrir todo o frame
+        setContentPane(painel);
         setVisible(true);
     }
 

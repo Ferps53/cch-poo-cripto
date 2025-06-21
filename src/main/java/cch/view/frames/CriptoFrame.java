@@ -1,36 +1,56 @@
 package cch.view.frames;
 
+import cch.view.widgets.BotaoRedondo;
 import cch.view.widgets.Frame;
 import cch.view.widgets.Tabela;
 
 import javax.swing.*;
 import java.awt.*;
 
+import static cch.utils.CoresApp.*;
+
 public class CriptoFrame extends Frame {
 
-    private Tabela tabela;
-    private JScrollPane scroll;
+    private final Tabela tabela;
 
     public CriptoFrame() throws InterruptedException {
         super("Cripto");
 
         tabela = new Tabela();
-        scroll = new JScrollPane(tabela);
-        final var panel = new JPanel();
-        panel.add(scroll);
-        this.add(panel);
-        panel.setSize(800, 600);
+        final var scroll = new JScrollPane(tabela);
+        final var fundo = new JPanel();
+        fundo.setLayout(new BorderLayout());
+        fundo.add(scroll);
+        fundo.setBackground(BACKGROUND_PRIMARY);
 
-        final var adicionarMoedas = new JButton("+");
-        adicionarMoedas.setAlignmentX(1);
-        adicionarMoedas.setAlignmentY(1);
-        adicionarMoedas.addActionListener(_ -> {
-            new AdicionarCriptoDialog(this.tabela);
-        });
+        fundo.add(criarBarraSuperior(), BorderLayout.PAGE_START);
 
-        panel.add(adicionarMoedas);
-
+        this.setContentPane(fundo);
         this.setVisible(true);
+    }
+
+    // Clean code
+    private JPanel criarBarraSuperior() {
+        final var sidepanel = new JPanel();
+        sidepanel.setSize(getWidth(), 100);
+        sidepanel.setBackground(BACKGROUND_PRIMARY);
+        sidepanel.setLayout(new GridLayout(1, 0, 64, 0));
+
+        final var titulo = new JLabel("Visualizador de Cripto");
+        titulo.setForeground(TEXT_PRIMARY);
+        titulo.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        final var atualizarValores = new BotaoRedondo("Atualizar valores", BUTTON_SECONDARY, TEXT_SECONDARY, BUTTON_SECONDARY_HOVER, BUTTON_SECONDARY_HOVER);
+        atualizarValores.setToolTipText("Atualizar os valores das moedas da tabela abaixo");
+
+        final var adicionarMoedas = new BotaoRedondo("Adicionar moedas", BUTTON_PRIMARY, TEXT_PRIMARY, BUTTON_PRIMARY_HOVER, BUTTON_SECONDARY);
+        adicionarMoedas.setToolTipText("Adicionar moedas na listagem da tabela abaixo");
+        adicionarMoedas.addActionListener(_ -> new AdicionarCriptoDialog(this.tabela));
+
+        sidepanel.add(titulo);
+        sidepanel.add(atualizarValores);
+        sidepanel.add(adicionarMoedas);
+        return sidepanel;
     }
 
     @Override

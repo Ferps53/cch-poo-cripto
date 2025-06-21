@@ -1,6 +1,7 @@
 package cch.view.widgets;
 
 import cch.model.Ticker;
+import cch.utils.CoresApp;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -21,8 +22,14 @@ public class Tabela extends JTable {
         model.addColumn("Valor de Compra");
         model.addColumn("Valor de Venda");
 
+        getTableHeader().setForeground(CoresApp.TEXT_PRIMARY);
+        getTableHeader().setBackground(CoresApp.BACKGROUND_PRIMARY);
+        setBorder(BorderFactory.createLineBorder(CoresApp.BORDER, 1, true));
+
+        setForeground(CoresApp.TEXT_SECONDARY);
+        setBackground(CoresApp.BACKGROUND_SECONDARY);
         // Faz a tabela ocupar mais espaço na tela
-        setPreferredScrollableViewportSize(new Dimension(700, 500));
+        setPreferredScrollableViewportSize(new Dimension(600, 600));
         setFillsViewportHeight(true);
     }
 
