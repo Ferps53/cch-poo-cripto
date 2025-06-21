@@ -79,5 +79,9 @@ public final class FontManager {
         UIManager.put("InternalFrame.optionDialogTitleFont", myFont);
         UIManager.put("InternalFrame.paletteTitleFont", myFont);
         UIManager.put("InternalFrame.titleFont", myFont);
+
+        // Faz o texto e os elementos terem bordas suaves.
+        UIManager.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        UIManager.put(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }
 }

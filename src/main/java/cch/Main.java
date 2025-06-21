@@ -16,7 +16,6 @@ public class Main {
         try {
             new CriptoFrame();
         } catch (InterruptedException _) {
-            System.out.println("LOL");
             Thread.currentThread().interrupt();
         }
     }

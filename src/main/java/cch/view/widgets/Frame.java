@@ -15,6 +15,5 @@ public class Frame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(new FlowLayout());
-        this.setVisible(true);
     }
 }
