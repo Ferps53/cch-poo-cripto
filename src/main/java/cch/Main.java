@@ -2,6 +2,7 @@ package cch;
 
 import cch.utils.FontManager;
 import cch.view.frames.CriptoFrame;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -13,7 +14,9 @@ public class Main {
 
     try {
       new CriptoFrame();
-    } catch (InterruptedException _) {
+    } catch (InterruptedException e) {
+      Logger.getLogger("interrupt").severe(e.getMessage());
+      // O plugin do Sonar me fez chegar aqui
       Thread.currentThread().interrupt();
     }
   }
