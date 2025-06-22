@@ -215,7 +215,7 @@ public class Tabela extends JTable {
 
   private void atualizarIndices(int deletedIndex) {
     for (int i = deletedIndex; i < getRowCount(); i++) {
-      final int indexAtual = (int) model.getValueAt(i, 0);
+      final int indexAtual = Integer.parseInt(((String) model.getValueAt(i, 0)).replace(" ", ""));
       model.setValueAt("  " + (indexAtual - 1), i, 0);
     }
   }

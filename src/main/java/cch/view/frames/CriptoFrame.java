@@ -2,6 +2,7 @@ package cch.view.frames;
 
 import static cch.utils.CoresApp.*;
 
+import cch.utils.IconLoader;
 import cch.view.widgets.Frame;
 import cch.view.widgets.Tabela;
 import cch.view.widgets.botao.BotaoRedondo;
@@ -38,32 +39,38 @@ public class CriptoFrame extends Frame {
     barraSuperior.setBackground(BACKGROUND_PRIMARY);
     barraSuperior.setLayout(new GridLayout(1, 0, 64, 0));
 
-    final var titulo = new JLabel("Visualizador de Cripto");
+    // Html é vida
+    final var titulo = new JLabel("<html><h2 style='margin-left: 48px'>TickerViewer</h2><html>");
     titulo.setForeground(TEXT_PRIMARY);
     titulo.setHorizontalTextPosition(SwingConstants.CENTER);
 
     final var atualizarValores =
         new BotaoRedondo(
             "Atualizar valores",
+            IconLoader.getIcon("icons/refresh.png"),
             BUTTON_SECONDARY,
             TEXT_SECONDARY,
             BUTTON_SECONDARY_HOVER,
-            BUTTON_SECONDARY_HOVER);
-    atualizarValores.setToolTipText("Atualizar os valores das moedas da tabela abaixo");
+            BUTTON_SECONDARY_HOVER,
+            true);
+    atualizarValores.setToolTipText("Atualizar os valores dos tickers da tabela abaixo");
+    atualizarValores.addActionListener(_ -> new AtualizarCriptoDialog(this.tabela));
 
-    final var adicionarMoedas =
+    final var novoTicker =
         new BotaoRedondo(
-            "Adicionar moedas",
+            "Novo ticker",
+            IconLoader.getIcon("icons/plus.png"),
             BUTTON_PRIMARY,
             TEXT_PRIMARY,
             BUTTON_PRIMARY_HOVER,
-            BUTTON_SECONDARY);
-    adicionarMoedas.setToolTipText("Adicionar moedas na listagem da tabela abaixo");
-    adicionarMoedas.addActionListener(_ -> new AdicionarCriptoDialog(this.tabela));
+            BUTTON_SECONDARY,
+            true);
+    novoTicker.setToolTipText("Adicionar um novo ticker na listagem da tabela abaixo");
+    novoTicker.addActionListener(_ -> new AdicionarCriptoDialog(this.tabela));
 
     barraSuperior.add(titulo);
     barraSuperior.add(atualizarValores);
-    barraSuperior.add(adicionarMoedas);
+    barraSuperior.add(novoTicker);
     return barraSuperior;
   }
 }

@@ -1,17 +1,16 @@
 package cch.view.widgets.botao;
 
 import cch.utils.CoresApp;
-import cch.utils.FontManager;
 import java.awt.*;
+import javax.swing.*;
 
 public class BotaoErro extends BotaoRedondo {
 
-  private static final Font FONT = FontManager.getFont().deriveFont(Font.BOLD, 6);
   private static final Dimension DIMENSION = new Dimension(24, 24);
 
-  public BotaoErro(String text) {
+  public BotaoErro(ImageIcon icon) {
     super(
-        text,
+        icon,
         CoresApp.ERROR_STRONG,
         CoresApp.TEXT_PRIMARY,
         CoresApp.ERROR_MEDIUM,
@@ -19,7 +18,5 @@ public class BotaoErro extends BotaoRedondo {
     setPreferredSize(DIMENSION);
     setMaximumSize(DIMENSION);
     setMinimumSize(DIMENSION);
-
-    setFont(FONT);
   }
 }

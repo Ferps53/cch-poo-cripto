@@ -14,6 +14,7 @@ import javax.swing.*;
 public class AdicionarCriptoDialog extends JDialog {
   private final Tabela tabela;
   private final JPanel fundo;
+  private PainelErro painelErro;
 
   public AdicionarCriptoDialog(Tabela tabela) {
 
@@ -21,7 +22,7 @@ public class AdicionarCriptoDialog extends JDialog {
     setResizable(false);
     setAlwaysOnTop(true);
     setModalityType(ModalityType.APPLICATION_MODAL);
-    setLocationRelativeTo(tabela.getRootPane());
+    setLocationRelativeTo(tabela);
     setTitle("Adicionar nova moeda");
     fundo = criarFundo();
     // faz o painel cobrir todo o frame
@@ -72,13 +73,19 @@ public class AdicionarCriptoDialog extends JDialog {
   private void adicionarNovaCriptoMoeda(
       OpcoesCripto opcoesCripto, AdicionarCriptoDialog dialog, BotaoRedondo button) {
 
+    if (painelErro != null) {
+      fundo.remove(painelErro);
+      revalidate();
+      repaint();
+    }
+
     // Verifica se a moeda já foi adicionada na tabela
     for (final var nomeNaTabela : tabela.getNomeTickers()) {
       if (nomeNaTabela.equals(opcoesCripto.getAbreviacao())) {
-        final var painelErro =
+        painelErro =
             new PainelErro(
                 "A moeda " + opcoesCripto.getAbreviacao() + " já foi cadastrada!", fundo);
-        fundo.add(painelErro);
+        fundo.add(painelErro, BorderLayout.PAGE_END);
         // revalidate() e repaint(), fazem a dialog ser recalculado e pintar novamente os
         // componentes.
         // Nesse caso faz o painel de erro aparecer.
@@ -87,6 +94,7 @@ public class AdicionarCriptoDialog extends JDialog {
         return;
       }
     }
+
     final var barra =
         new Carregamento(getWidth() - 16, 16, FlowLayout.CENTER, CoresApp.BACKGROUND_SECONDARY);
     barra.setTextoLabel("Carregando: " + opcoesCripto.getNomeExtenso());
@@ -110,7 +118,7 @@ public class AdicionarCriptoDialog extends JDialog {
 
               } catch (IOException | InterruptedException e) {
                 button.setEnabled(true);
-                final var painelErro = new PainelErro(e.getMessage(), fundo);
+                painelErro = new PainelErro(e.getMessage(), fundo);
                 fundo.add(painelErro);
                 // revalidate() e repaint(), fazem a dialog ser recalculado e pintar novamente os
                 // componentes.

@@ -29,4 +29,10 @@ public class Carregamento extends JPanel {
     revalidate();
     repaint();
   }
+
+  public void concluir() {
+    barraProgresso.setIndeterminate(false);
+    barraProgresso.getModel().setValue(barraProgresso.getMaximum());
+    barraProgresso.setString("Concluído!");
+  }
 }

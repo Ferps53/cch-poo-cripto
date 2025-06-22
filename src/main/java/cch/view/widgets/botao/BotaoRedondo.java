@@ -12,8 +12,13 @@ public class BotaoRedondo extends JButton {
   private final boolean animarMudancaDeCor;
 
   public BotaoRedondo(
+      ImageIcon icon, Color corDeFundo, Color corDeTexto, Color corDeHover, Color corPressionado) {
+    this(null, icon, corDeFundo, corDeTexto, corDeHover, corPressionado, true);
+  }
+
+  public BotaoRedondo(
       String text, Color corDeFundo, Color corDeTexto, Color corDeHover, Color corPressionado) {
-    this(text, corDeFundo, corDeTexto, corDeHover, corPressionado, true);
+    this(text, null, corDeFundo, corDeTexto, corDeHover, corPressionado, false);
   }
 
   public BotaoRedondo(
@@ -23,7 +28,18 @@ public class BotaoRedondo extends JButton {
       Color corDeHover,
       Color corPressionado,
       boolean animarMudancaDeCor) {
-    super(text);
+    this(text, null, corDeFundo, corDeTexto, corDeHover, corPressionado, animarMudancaDeCor);
+  }
+
+  public BotaoRedondo(
+      String text,
+      ImageIcon icon,
+      Color corDeFundo,
+      Color corDeTexto,
+      Color corDeHover,
+      Color corPressionado,
+      boolean animarMudancaDeCor) {
+    super(text, icon);
     this.corDeFundo = corDeFundo;
     this.corDeHover = corDeHover;
     this.corPressionado = corPressionado;
