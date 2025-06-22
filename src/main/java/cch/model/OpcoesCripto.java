@@ -1,8 +1,5 @@
 package cch.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum OpcoesCripto {
   BITCOIN("BTC", "Bitcoin"),
   ETHEREUM("ETH", "Ethereum"),
@@ -35,19 +32,13 @@ public enum OpcoesCripto {
     return null;
   }
 
-  public List<OpcoesCripto> getOpcoes(String input) {
-
-    input = input.trim().toUpperCase();
-    final List<OpcoesCripto> listOpcoes = new ArrayList<>();
-
+  public static OpcoesCripto getOpcaoPelaAbreviacao(String abreviacao) {
     for (final var item : values()) {
-      if (item.getAbreviacao().toUpperCase().contains(input)
-          || item.getNomeExtenso().toUpperCase().contains(input)) {
-        listOpcoes.add(item);
+      if (abreviacao.toUpperCase().equals(item.getAbreviacao())) {
+        return item;
       }
     }
-
-    return listOpcoes;
+    return null;
   }
 
   OpcoesCripto(String abreviacao, String nomeExtenso) {

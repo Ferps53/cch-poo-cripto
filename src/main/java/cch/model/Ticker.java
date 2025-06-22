@@ -27,10 +27,6 @@ public class Ticker {
     return ultimoPrecoVenda.setScale(4, RoundingMode.DOWN);
   }
 
-  public void atualizarValores(JSONObject json) {
-    preencherPrecosPorJson(json);
-  }
-
   private void preencherPrecosPorJson(JSONObject json) {
 
     final var tickerObject = json.getJSONObject("ticker");

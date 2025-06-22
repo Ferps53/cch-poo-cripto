@@ -30,10 +30,10 @@ public class CriptoFrame extends Frame {
 
   // Clean code
   private JPanel criarBarraSuperior() {
-    final var sidepanel = new JPanel();
-    sidepanel.setSize(getWidth(), 100);
-    sidepanel.setBackground(BACKGROUND_PRIMARY);
-    sidepanel.setLayout(new GridLayout(1, 0, 64, 0));
+    final var sidePanel = new JPanel();
+    sidePanel.setSize(getWidth(), 100);
+    sidePanel.setBackground(BACKGROUND_PRIMARY);
+    sidePanel.setLayout(new GridLayout(1, 0, 64, 0));
 
     final var titulo = new JLabel("Visualizador de Cripto");
     titulo.setForeground(TEXT_PRIMARY);
@@ -58,9 +58,9 @@ public class CriptoFrame extends Frame {
     adicionarMoedas.setToolTipText("Adicionar moedas na listagem da tabela abaixo");
     adicionarMoedas.addActionListener(_ -> new AdicionarCriptoDialog(this.tabela));
 
-    sidepanel.add(titulo);
-    sidepanel.add(atualizarValores);
-    sidepanel.add(adicionarMoedas);
-    return sidepanel;
+    sidePanel.add(titulo);
+    sidePanel.add(atualizarValores);
+    sidePanel.add(adicionarMoedas);
+    return sidePanel;
   }
 }
