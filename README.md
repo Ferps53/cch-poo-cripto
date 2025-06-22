@@ -12,4 +12,4 @@
 
 ## Screenshot do projeto:
 
-![Screeshot](screenshot/tickerview.jpeg)
+![Screenshot](screenshot/tickerview.jpeg)
