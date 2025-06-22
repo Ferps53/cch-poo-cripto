@@ -60,6 +60,8 @@ public final class FontManager {
     UIManager.put("Panel.font", myFont);
     UIManager.put("Panel.background", CoresApp.BACKGROUND_PRIMARY);
     UIManager.put("ProgressBar.font", myFont);
+    UIManager.put("ProgressBar.selectionForeground", CoresApp.TEXT_PRIMARY);
+    UIManager.put("ProgressBar.selectionBackground", CoresApp.BACKGROUND_PRIMARY);
     UIManager.put("ScrollPane.font", myFont);
     UIManager.put("Viewport.font", myFont);
     UIManager.put("TabbedPane.font", myFont);

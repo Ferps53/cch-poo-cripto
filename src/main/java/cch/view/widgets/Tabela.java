@@ -6,6 +6,8 @@ import cch.http.ClienteHttp;
 import cch.model.OpcoesCripto;
 import cch.model.Ticker;
 import cch.utils.IconLoader;
+import cch.view.widgets.botao.BotaoColuna;
+import cch.view.widgets.botao.BotaoRedondo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -68,7 +70,8 @@ public class Tabela extends JTable {
     model.insertRow(
         getRowCount(),
         new Object[] {
-          getRowCount() + 1,
+          // Adiciona um espaçamento nos índices
+          "  " + (getRowCount() + 1),
           OpcoesCripto.getNomeExtensoPelaAbreviacao(ticker.getNome()),
           ticker.getNome(),
           ticker.getUltimoPrecoCompra(),
@@ -215,7 +218,7 @@ public class Tabela extends JTable {
   private void atualizarIndices(int deletedIndex) {
     for (int i = deletedIndex; i < getRowCount(); i++) {
       final int indexAtual = (int) model.getValueAt(i, 0);
-      model.setValueAt(indexAtual - 1, i, 0);
+      model.setValueAt("  " + (indexAtual - 1), i, 0);
     }
   }
 }

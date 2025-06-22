@@ -1,4 +1,4 @@
-package cch.view.widgets;
+package cch.view.widgets.botao;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

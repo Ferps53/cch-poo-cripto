@@ -1,5 +1,7 @@
 package cch.view.widgets;
 
+import cch.view.widgets.botao.BotaoErro;
+
 import static cch.utils.CoresApp.*;
 
 import java.awt.event.ActionListener;

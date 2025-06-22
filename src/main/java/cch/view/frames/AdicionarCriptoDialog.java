@@ -3,9 +3,10 @@ package cch.view.frames;
 import cch.http.ClienteHttp;
 import cch.model.OpcoesCripto;
 import cch.utils.CoresApp;
-import cch.view.widgets.BotaoRedondo;
+import cch.view.widgets.Carregamento;
 import cch.view.widgets.PainelErro;
 import cch.view.widgets.Tabela;
+import cch.view.widgets.botao.BotaoRedondo;
 import java.awt.*;
 import java.io.IOException;
 import javax.swing.*;
@@ -86,11 +87,9 @@ public class AdicionarCriptoDialog extends JDialog {
         return;
       }
     }
-    final var barra = new JProgressBar();
-    barra.setBackground(CoresApp.TEXT_PRIMARY);
-    barra.setForeground(CoresApp.BUTTON_PRIMARY_HOVER);
-    barra.setBorderPainted(false);
-    barra.setIndeterminate(true);
+    final var barra =
+        new Carregamento(getWidth() - 16, 16, FlowLayout.CENTER, CoresApp.BACKGROUND_SECONDARY);
+    barra.setTextoLabel("Carregando: " + opcoesCripto.getNomeExtenso());
 
     // Inicia a chamada do endpoint em uma nova thread. Dessa forma usa de paralelismo para não
     // travar a UI!

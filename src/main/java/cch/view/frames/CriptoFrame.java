@@ -2,9 +2,9 @@ package cch.view.frames;
 
 import static cch.utils.CoresApp.*;
 
-import cch.view.widgets.BotaoRedondo;
 import cch.view.widgets.Frame;
 import cch.view.widgets.Tabela;
+import cch.view.widgets.botao.BotaoRedondo;
 import java.awt.*;
 import javax.swing.*;
 
@@ -19,10 +19,13 @@ public class CriptoFrame extends Frame {
     final var scroll = new JScrollPane(tabela);
     final var fundo = new JPanel();
     fundo.setLayout(new BorderLayout());
+    // Adiciona a tabela preenchendo a tela
     fundo.add(scroll);
     fundo.setBackground(BACKGROUND_PRIMARY);
 
+    // Adiciona a barra superior na parte superior da tela
     fundo.add(criarBarraSuperior(), BorderLayout.PAGE_START);
+    // Adiciona o carregamento na parte inferior da tela
 
     this.setContentPane(fundo);
     this.setVisible(true);
@@ -30,10 +33,10 @@ public class CriptoFrame extends Frame {
 
   // Clean code
   private JPanel criarBarraSuperior() {
-    final var sidePanel = new JPanel();
-    sidePanel.setSize(getWidth(), 100);
-    sidePanel.setBackground(BACKGROUND_PRIMARY);
-    sidePanel.setLayout(new GridLayout(1, 0, 64, 0));
+    final var barraSuperior = new JPanel();
+    barraSuperior.setSize(getWidth(), 100);
+    barraSuperior.setBackground(BACKGROUND_PRIMARY);
+    barraSuperior.setLayout(new GridLayout(1, 0, 64, 0));
 
     final var titulo = new JLabel("Visualizador de Cripto");
     titulo.setForeground(TEXT_PRIMARY);
@@ -58,9 +61,9 @@ public class CriptoFrame extends Frame {
     adicionarMoedas.setToolTipText("Adicionar moedas na listagem da tabela abaixo");
     adicionarMoedas.addActionListener(_ -> new AdicionarCriptoDialog(this.tabela));
 
-    sidePanel.add(titulo);
-    sidePanel.add(atualizarValores);
-    sidePanel.add(adicionarMoedas);
-    return sidePanel;
+    barraSuperior.add(titulo);
+    barraSuperior.add(atualizarValores);
+    barraSuperior.add(adicionarMoedas);
+    return barraSuperior;
   }
 }

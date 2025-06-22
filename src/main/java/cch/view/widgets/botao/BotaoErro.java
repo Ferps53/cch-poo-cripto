@@ -1,4 +1,4 @@
-package cch.view.widgets;
+package cch.view.widgets.botao;
 
 import cch.utils.CoresApp;
 import cch.utils.FontManager;
