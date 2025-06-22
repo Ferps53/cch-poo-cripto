@@ -4,6 +4,7 @@ import static cch.utils.CoresApp.*;
 
 import cch.model.OpcoesCripto;
 import cch.model.Ticker;
+import cch.utils.IconLoader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class Tabela extends JTable {
           ticker.getNome(),
           ticker.getUltimoPrecoCompra(),
           ticker.getUltimoPrecoVenda(),
-          new ImageIcon("delete.png")
+          IconLoader.getIcon("icons/delete.png")
         });
   }
 
