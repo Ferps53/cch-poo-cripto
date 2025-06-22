@@ -1,9 +1,9 @@
 package cch.view.widgets;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
-
 import static cch.utils.CoresApp.*;
+
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class PainelErro extends PainelBordaArredondada {
 

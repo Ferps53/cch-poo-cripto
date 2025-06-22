@@ -1,7 +1,7 @@
 package cch.view.widgets;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /// Uma abstração para usar o [JFrame]. Esta classe permite adicionar métodos para facilitar o uso
 /// do [JFrame]

@@ -1,13 +1,12 @@
 package cch.view.frames;
 
+import static cch.utils.CoresApp.*;
+
 import cch.view.widgets.BotaoRedondo;
 import cch.view.widgets.Frame;
 import cch.view.widgets.Tabela;
-
-import javax.swing.*;
 import java.awt.*;
-
-import static cch.utils.CoresApp.*;
+import javax.swing.*;
 
 public class CriptoFrame extends Frame {
 

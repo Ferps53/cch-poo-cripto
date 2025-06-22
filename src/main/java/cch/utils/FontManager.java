@@ -1,9 +1,9 @@
 package cch.utils;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.swing.*;
 
 public final class FontManager {
 

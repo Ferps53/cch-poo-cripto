@@ -6,10 +6,9 @@ import cch.model.Ticker;
 import cch.utils.CoresApp;
 import cch.view.widgets.PainelErro;
 import cch.view.widgets.Tabela;
-import org.json.JSONObject;
-
-import javax.swing.*;
 import java.io.IOException;
+import javax.swing.*;
+import org.json.JSONObject;
 
 public class AdicionarCriptoDialog extends JDialog {
   private static final ClienteHttp CLIENTE = new ClienteHttp();

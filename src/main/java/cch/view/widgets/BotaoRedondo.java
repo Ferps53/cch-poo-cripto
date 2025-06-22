@@ -1,9 +1,8 @@
 package cch.view.widgets;
 
 import cch.utils.CoresApp;
-
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class BotaoRedondo extends JButton {
   private final int raio;

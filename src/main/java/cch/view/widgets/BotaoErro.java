@@ -2,7 +2,6 @@ package cch.view.widgets;
 
 import cch.utils.CoresApp;
 import cch.utils.FontManager;
-
 import java.awt.*;
 
 public class BotaoErro extends BotaoRedondo {

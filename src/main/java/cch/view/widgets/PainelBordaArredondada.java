@@ -1,7 +1,7 @@
 package cch.view.widgets;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 // Cria um painel com bordas redondas
 public class PainelBordaArredondada extends JPanel {
