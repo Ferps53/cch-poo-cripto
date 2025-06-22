@@ -50,8 +50,6 @@ public class Tabela extends JTable {
     columnModel.getColumn(6).setMaxWidth(128);
     setRowHeight(40);
 
-    setBorder(BorderFactory.createLineBorder(BORDER, 2, true));
-
     setForeground(TEXT_SECONDARY);
     setBackground(BACKGROUND_SECONDARY);
 
