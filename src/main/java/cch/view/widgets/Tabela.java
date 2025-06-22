@@ -29,7 +29,7 @@ public class Tabela extends JTable {
     model.addColumn("Valor de Venda");
     model.addColumn("");
 
-    adicionarBotaoDeRemover();
+    adicionarBotaoDeRemover(this);
 
     getTableHeader().setForeground(TEXT_PRIMARY);
     getTableHeader().setBackground(BACKGROUND_PRIMARY);
@@ -74,7 +74,7 @@ public class Tabela extends JTable {
     return listNomes;
   }
 
-  private void adicionarBotaoDeRemover() {
+  private void adicionarBotaoDeRemover(Tabela tabela) {
     Action delete =
         new AbstractAction() {
           @Override
@@ -85,7 +85,7 @@ public class Tabela extends JTable {
 
             final var pane = criarConfirmacao(nomeTicker);
 
-            final var dialog = pane.createDialog("Confirmação de remoção");
+            final var dialog = pane.createDialog(tabela.getParent(),"Confirmação de remoção");
             dialog.setVisible(true);
 
             if (pane.getValue().equals(JOptionPane.YES_OPTION)) {
