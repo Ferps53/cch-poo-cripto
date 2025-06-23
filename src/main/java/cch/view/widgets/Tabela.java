@@ -27,8 +27,8 @@ public class Tabela extends JTable {
     model = (DefaultTableModel) getModel();
 
     model.addColumn("#");
-    model.addColumn("Abreviado");
-    model.addColumn("Extenso");
+    model.addColumn("Moeda");
+    model.addColumn("Ticker");
     model.addColumn("Valor de Compra");
     model.addColumn("Valor de Venda");
     model.addColumn("");
